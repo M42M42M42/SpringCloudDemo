@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   nacos:
     image: nacos/nacos-server:v2.3.2
@@ -8,6 +6,17 @@ services:
       - MODE=standalone
     ports:
       - "8848:8848"
-      - "9848:9848"
+      - "9848:9848" # gRPC 注册端口
       - "9849:9849"
+    restart: always
+  sentinel:
+    image: bladex/sentinel-dashboard:1.8.8
+    container_name: sentinel-dashboard
+#    environment:
+#      - SERVER_PORT=8858 # 控制台默认端口
+#      - SENTINEL_AUTH_USERNAME=sentinel # 登录账号
+#      - SENTINEL_AUTH_PASSWORD=sentinel # 登录密码 TODO: remove this
+    ports:
+      - "8858:8858" # 网页访问端口
+      - "8719:8719" # 通信端口
     restart: always
