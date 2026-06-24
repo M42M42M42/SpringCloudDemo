@@ -3,8 +3,16 @@ server:
 spring:
   application:
     name: cloud-provider
+  profiles:
+    active: dev # 激活 dev 环境配置
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
         ip: 127.0.0.1 # 强制在 Nacos 中注册为本地回环 IP，确保 Consumer 绝对能连上
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+  config:
+    import:
+      - nacos:cloud-provider-dev.yml # Spring Boot 3.x 必须显式导入 Nacos 配置

@@ -15,7 +15,12 @@
 ```bash
 docker compose up -d
 ```
-2. 手动启动三个微服务（provider、consumer、gateway）
 
-3. 打开浏览器，访问网关的地址：
-http://localhost:9000/consumer/call
+2. Nacos 控制台 添加配置：**cloud-provider-dev.yml**
+   ```yaml
+   user:
+     info: "test_user_001"  # 可验证配置热更新
+   ```
+3. 手动启动三个微服务（provider、consumer、gateway）
+4. 打开浏览器，访问网关的地址：
+   http://localhost:9000/consumer/call
