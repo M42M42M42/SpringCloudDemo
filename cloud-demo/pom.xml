@@ -11,6 +11,7 @@
     <modules>
         <module>cloud-provider</module>
         <module>cloud-consumer</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <properties>

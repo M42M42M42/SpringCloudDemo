@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        ip: 127.0.0.1
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让网关发现 Nacos 中的服务
+      routes:
+        - id: consumer-rout
+          uri: lb://cloud-consumer # lb 表示 LoadBalance 负载均衡到该服务
+          predicates:
+            - Path=/consumer/** # 只要路径匹配 /consumer/**，就转发给 consumer 服务
