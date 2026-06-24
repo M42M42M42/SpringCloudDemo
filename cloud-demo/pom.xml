@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloud-provider</module>
+        <module>cloud-consumer</module>
     </modules>
 
     <properties>

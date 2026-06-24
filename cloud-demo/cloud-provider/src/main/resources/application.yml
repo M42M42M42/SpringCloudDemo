@@ -7,3 +7,4 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        ip: 127.0.0.1 # 强制在 Nacos 中注册为本地回环 IP，确保 Consumer 绝对能连上
